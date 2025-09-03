@@ -1,0 +1,146 @@
+[
+  {
+    "id": 0,
+    "img": "img/product/product-1.jpg",
+    "img_hover": "img/product/product-1.jpg",
+    "name": "Android Dual SIM Smart Phone G3",
+    "price": 185,
+    "old_price": 225,
+    "category": "phone"
+  },
+  {
+    "id": 1,
+    "img": "img/product/product2.jpg",
+    "img_hover": "img/product/product-2.jpg",
+    "name": "Android Dual SIM Smart Phone G3",
+    "price": 100,
+    "old_price": 120,
+    "category": "phone"
+  },
+  {
+    "id": 2,
+    "img": "img/product/product3.jpg",
+    "img_hover": "img/product/product-3.jpg",
+    "name": "Android Dual SIM Smart Phone G3",
+    "price": 140,
+    "old_price": 200,
+    "category": "phone"
+  },
+  {
+    "id": 3,
+    "img": "img/product/product4.jpg",
+    "img_hover": "img/product/product-4.jpg",
+    "name": "Android Dual SIM Smart Phone G3",
+    "price": 90,
+    "old_price": 110,
+    "category": "phone"
+  },
+  {
+    "id": 4,
+    "img": "img/product/product5.jpg",
+    "img_hover": "img/product/product-5.jpg",
+    "name": "Android Dual SIM Smart Phone G3",
+    "price": 350,
+    "old_price": 420,
+    "category": "phone"
+  },
+  {
+    "id": 5,
+    "img": "img/product/product6.jpg",
+    "img_hover": "img/product/product-6.jpg",
+    "name": "Android Dual SIM Smart Phone G3",
+    "price": 115,
+    "old_price": 235,
+    "category": "phone"
+  },
+  {
+    "id": 6,
+    "img": "img/product/product7.jpg",
+    "img_hover": "img/product/product-7.jpg",
+    "name": "Android Dual SIM Smart Phone G3",
+    "price": 225,
+    "old_price": 280,
+    "category": "phone"
+  },
+  {
+    "id": 7,
+    "img": "img/product/product8.jpg",
+    "img_hover": "img/product/product-8.jpg",
+    "name": "Android Dual SIM Smart Phone G3",
+    "price": 150,
+    "old_price": 200,
+    "category": "phone"
+  },
+  {
+    "id": 8,
+    "img": "img/product/product-1.jpg",
+    "img_hover": "img/product/product1.jpg",
+    "name": "Android Smart Phone G3 (New Model)",
+    "price": 180,
+    "old_price": null,
+    "category": "phone"
+  },
+  {
+    "id": 9,
+    "img": "img/product/product-2.jpg",
+    "img_hover": "img/product/product2.jpg",
+    "name": "Android Smart Phone G3 (Pro)",
+    "price": 300,
+    "old_price": null,
+    "category": "phone"
+  },
+  {
+    "id": 10,
+    "img": "img/product/product-3.jpg",
+    "img_hover": "img/product/product3.jpg",
+    "name": "Android Smart Phone G3 (Lite)",
+    "price": 250,
+    "old_price": null,
+    "category": "phone"
+  },
+  {
+    "id": 11,
+    "img": "img/product/product-4.jpg",
+    "img_hover": "img/product/product4.jpg",
+    "name": "Android Smart Phone G3 (Mini)",
+    "price": 120,
+    "old_price": null,
+    "category": "phone"
+  },
+  {
+    "id": 12,
+    "img": "img/product/product-5.jpg",
+    "img_hover": "img/product/product5.jpg",
+    "name": "Android Smart Phone G3 (Standard)",
+    "price": 90,
+    "old_price": null,
+    "category": "phone"
+  },
+  {
+    "id": 13,
+    "img": "img/product/product-6.jpg",
+    "img_hover": "img/product/product6.jpg",
+    "name": "Android Smart Phone G3 (Basic)",
+    "price": 129,
+    "old_price": null,
+    "category": "phone"
+  },
+  {
+    "id": 14,
+    "img": "img/product/product-7.jpg",
+    "img_hover": "img/product/product7.jpg",
+    "name": "Android Smart Phone G3 (Edition)",
+    "price": 180,
+    "old_price": null,
+    "category": "phone"
+  },
+  {
+    "id": 15,
+    "img": "img/product/product-8.jpg",
+    "img_hover": "img/product/product8.jpg",
+    "name": "Student",
+    "price": 60,
+    "old_price": null,
+    "category": "Watches"
+  }
+]
