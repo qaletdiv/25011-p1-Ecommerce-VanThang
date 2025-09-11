@@ -15,18 +15,13 @@ function updateQuantity(productName, change) {
 
   if (index !== -1) {
     cart[index].quantity += change;
-
-    // Nếu quantity <= 0 thì xóa sản phẩm
-    if (cart[index].quantity <= 0) {
-      cart.splice(index, 1);
-    }
-
+    if (cart[index].quantity <= 0) cart.splice(index, 1); // Xóa nếu số lượng <= 0
     saveCart(cart);
     loadOrderSummary();
   }
 }
 
-// Load sản phẩm vào Order Summary
+// Load danh sách sản phẩm trong trang thanh toán
 function loadOrderSummary() {
   const cart = getCart();
   const orderItemsContainer = document.getElementById("order-items");
@@ -34,7 +29,7 @@ function loadOrderSummary() {
   const countElement = document.querySelector(".count_item");
 
   if (!cart.length) {
-    orderItemsContainer.innerHTML = "<p>Your cart is empty!</p>";
+    orderItemsContainer.innerHTML = "<p>Giỏ hàng trống!</p>";
     totalElement.textContent = "$0";
     if (countElement) countElement.textContent = 0;
     return;
@@ -46,19 +41,18 @@ function loadOrderSummary() {
   cart.forEach(item => {
     const subtotal = item.price * item.quantity;
     total += subtotal;
-
     html += `
       <div class="item_cart">
         <img src="${item.img}" alt="${item.name}">
         <div class="content">
           <h4>${item.name}</h4>
-          <p class="price_cart">Price: <span>$${item.price}</span></p>
+          <p class="price_cart">Giá: <span>$${item.price}</span></p>
           <div class="quantity-controls">
-            <button  class="decrease qty-btn" data-name="${item.name}">-</button>
+            <button class="decrease qty-btn" data-name="${item.name}">-</button>
             <span>${item.quantity}</span>
             <button class="increase qty-btn" data-name="${item.name}">+</button>
           </div>
-          <p>Subtotal: $${subtotal.toFixed(2)}</p>
+          <p>Tạm tính: $${subtotal.toFixed(2)}</p>
         </div>
       </div>
     `;
@@ -68,28 +62,47 @@ function loadOrderSummary() {
   totalElement.textContent = `$${total.toFixed(2)}`;
   if (countElement) countElement.textContent = cart.reduce((a, c) => a + c.quantity, 0);
 
-  // Gắn sự kiện tăng/giảm số lượng
+  // Gắn sự kiện tăng/giảm
   document.querySelectorAll(".increase").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const name = btn.getAttribute("data-name");
-      updateQuantity(name, 1);
-    });
+    btn.addEventListener("click", () => updateQuantity(btn.dataset.name, 1));
   });
-
   document.querySelectorAll(".decrease").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const name = btn.getAttribute("data-name");
-      updateQuantity(name, -1);
-    });
+    btn.addEventListener("click", () => updateQuantity(btn.dataset.name, -1));
   });
 }
 
-// Đặt hàng (ví dụ xóa giỏ hàng)
+// Xử lý đặt hàng
 document.getElementById("place-order").addEventListener("click", (e) => {
   e.preventDefault();
-  alert("Order placed successfully!");
-  localStorage.removeItem("cart");
-  window.location.href = "index.html";
+
+  // Lấy dữ liệu từ form
+  const email = document.querySelector('input[type="email"]').value.trim();
+  const name = document.querySelector('input[type="text"]').value.trim();
+  const address = document.querySelector('input[placeholder="Enter your address"]').value.trim();
+  const phone = document.querySelector('input[type="number"]').value.trim();
+
+  if (!email || !name || !address || !phone) {
+    alert("Vui lòng điền đầy đủ thông tin!");
+    return;
+  }
+
+  const cart = getCart();
+  if (!cart.length) {
+    alert("Giỏ hàng trống, không thể đặt hàng!");
+    return;
+  }
+
+  // Lưu thông tin đơn hàng
+  const orderInfo = {
+    customer: { email, name, address, phone },
+    items: cart,
+    total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  };
+
+  localStorage.setItem("lastOrder", JSON.stringify(orderInfo));
+  localStorage.removeItem("cart"); // Xóa giỏ hàng
+
+  window.location.href = "order_success.html"; // Chuyển sang trang thành công
 });
 
 // Load khi vào trang

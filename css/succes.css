@@ -1,0 +1,138 @@
+/* =================== RESET CƠ BẢN =================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #fcb700;
+  --dark-color: #222222;
+  --parg-color: #666666;
+  --dark-red: #d01418;
+  --border-color: #6666662a;
+  --name-item: #0066c0;
+}
+
+/* =================== BODY & NỀN =================== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff8e1; /* Nền vàng nhạt */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* =================== HEADER =================== */
+header {
+  background: var(--main-color);
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+header img {
+  width: 160px;
+  height: auto;
+}
+
+/* =================== CONTAINER CHÍNH =================== */
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* =================== TIÊU ĐỀ =================== */
+.order-success h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+  border-left: 4px solid var(--main-color);
+  padding-left: 10px;
+}
+
+/* =================== THÔNG TIN KHÁCH HÀNG =================== */
+.order-success p {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+/* =================== DANH SÁCH SẢN PHẨM =================== */
+.order-success .product-list {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.order-success .product-list li {
+  background: #fff3cd; /* Nền vàng nhẹ */
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffeeba;
+  gap: 15px;
+}
+
+.order-success .product-list li img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.order-success .product-list li div p {
+  margin: 3px 0;
+}
+
+/* =================== TỔNG THANH TOÁN =================== */
+.order-success h3 {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #e53935;
+  text-align: right;
+}
+
+/* =================== NÚT QUAY LẠI =================== */
+.order-success a {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 20px;
+  background: var(--main-color);
+  color: #333;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.order-success a:hover {
+  background: #ffb300;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .order-success h2 {
+    font-size: 20px;
+  }
+
+  .order-success .product-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-success h3 {
+    font-size: 18px;
+  }
+}

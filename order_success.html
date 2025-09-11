@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán thành công</title>
+  <link rel="stylesheet" href="./css/success.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <img src="./img/logo-black.png" alt="Logo">
+      <h1>Đặt hàng thành công!</h1>
+    </div>
+  </header>
+
+  <section class="order-success container">
+    <div id="order-details"></div>
+    <a href="index.html">Quay lại trang chủ</a>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const orderData = JSON.parse(localStorage.getItem("lastOrder"));
+      const container = document.getElementById("order-details");
+
+      if (!orderData) {
+        container.innerHTML = "<p>Không có thông tin đơn hàng!</p>";
+        return;
+      }
+
+      const { customer, items, total } = orderData;
+
+      let html = `
+        <h2>Thông tin khách hàng</h2>
+        <p><strong>Email:</strong> ${customer.email}</p>
+        <p><strong>Tên:</strong> ${customer.name}</p>
+        <p><strong>Địa chỉ:</strong> ${customer.address}</p>
+        <p><strong>Số điện thoại:</strong> ${customer.phone}</p>
+
+        <h2>Sản phẩm đã mua</h2>
+        <ul class="product-list">
+          ${items.map(item => `
+            <li>
+              <img src="${item.img}" alt="${item.name}">
+              <div>
+                <p><strong>${item.name}</strong></p>
+                <p>Số lượng: ${item.quantity}</p>
+                <p>Giá: $${item.price}</p>
+              </div>
+            </li>
+          `).join("")}
+        </ul>
+        <h3>Tổng thanh toán: $${total.toFixed(2)}</h3>
+      `;
+
+      container.innerHTML = html;
+    });
+  </script>
+</body>
+</html>

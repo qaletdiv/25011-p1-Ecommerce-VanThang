@@ -163,7 +163,7 @@ if (productList) {
     fetch("js/items.json")
         .then(res => res.json())
         .then(products => {
-            // Render HTML
+            // Render danh sách sản phẩm
             productList.innerHTML = products.map(product => `
                 <div class="product">
                     <a href="product_detail.html?id=${product.id}">
@@ -171,35 +171,29 @@ if (productList) {
                         <h3>${product.name}</h3>
                     </a>
                     <p>$${product.price}</p>
-                    <button class="add-to-cart-btn" data-id="${product.id}">
+                    <button class="add-to-cart-btn"
+                        data-id="${product.id}" 
+                        data-name="${product.name}" 
+                        data-price="${product.price}" 
+                        data-img="${product.img}">
                         Add to cart
                     </button>
                 </div>
             `).join("");
 
-            // Gắn sự kiện Add to Cart cho tất cả nút
+            // Gắn sự kiện Add to Cart
             document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
                 btn.addEventListener("click", () => {
-                    const productId = btn.getAttribute("data-id");
-                    const product = products.find(p => p.id == productId);
-                    if (product) addToCart({
-                        ...product,
-                        price: Number(product.price) // ép số để tránh NaN
-                    });
+                    const product = {
+                        id: btn.dataset.id,
+                        name: btn.dataset.name,
+                        price: Number(btn.dataset.price),
+                        img: btn.dataset.img
+                    };
+                    addToCart(product);
+                    alert(`${product.name} added to cart!`);
                 });
             });
         })
         .catch(err => console.error("Lỗi load sản phẩm:", err));
-}
-function changeQuantity(index, change) {
-    const product = product_cart[index];
-    product.quantity += change;
-
-    // Nếu số lượng <= 0 thì xóa sản phẩm
-    if (product.quantity <= 0) {
-        product_cart.splice(index, 1);
-    }
-
-    saveCart();
-    getCartItems();
 }
