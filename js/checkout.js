@@ -46,12 +46,7 @@ function loadOrderSummary() {
         <img src="${item.img}" alt="${item.name}">
         <div class="content">
           <h4>${item.name}</h4>
-          <p class="price_cart">Giá: <span>$${item.price}</span></p>
-          <div class="quantity-controls">
-            <button class="decrease qty-btn" data-name="${item.name}">-</button>
-            <span>${item.quantity}</span>
-            <button class="increase qty-btn" data-name="${item.name}">+</button>
-          </div>
+          <p class="price_cart">Giá: <span>$${item.price}</span>  <span> x ${item.quantity}</span>  </p>
           <p>Tạm tính: $${subtotal.toFixed(2)}</p>
         </div>
       </div>

@@ -54,10 +54,14 @@ function addToCart(product) {
 // render giỏ hàng
 function getCartItems() {
     let total_price = 0;
+    let total_quantity = 0;
     let items_c = "";
 
     for (let i = 0; i < product_cart.length; i++) {
         const p = product_cart[i];
+        total_price += p.price * p.quantity;
+        total_quantity += p.quantity;
+
         items_c += `
         <div class="item_cart">
             <img src="${p.img}" alt="">
@@ -73,15 +77,15 @@ function getCartItems() {
             <button onClick="remove_from_cart(${i})" class="delete_item"><i class="fa-solid fa-trash-can"></i></button>
         </div>
         `;
-        total_price += p.price * p.quantity;
     }
 
-    if (items_in_cart) items_in_cart.innerHTML = items_c;
-    if (price_cart_Head) price_cart_Head.innerHTML = "$" + total_price;
-    if (count_item) count_item.innerHTML = product_cart.length;
-    if (count_item_cart) count_item_cart.innerHTML = `(${product_cart.length} Item${product_cart.length > 1 ? 's' : ''} in Cart)`;
-    if (price_cart_total) price_cart_total.innerHTML = "$" + total_price;
+    if (items_in_cart) items_in_cart.innerHTML = items_c || "<p>Your cart is empty!</p>";
+    if (price_cart_Head) price_cart_Head.innerHTML = "$" + total_price.toFixed(2);
+    if (count_item) count_item.innerHTML = total_quantity;
+    if (count_item_cart) count_item_cart.innerHTML = `(${total_quantity} Item${total_quantity > 1 ? 's' : ''} in Cart)`;
+    if (price_cart_total) price_cart_total.innerHTML = "$" + total_price.toFixed(2);
 }
+
 
 // xóa sản phẩm khỏi giỏ
 function remove_from_cart(index) {
@@ -196,4 +200,17 @@ if (productList) {
             });
         })
         .catch(err => console.error("Lỗi load sản phẩm:", err));
+}
+
+
+function changeQuantity(index, change) {
+    if (!product_cart[index]) return;
+    product_cart[index].quantity += change;
+
+    if (product_cart[index].quantity <= 0) {
+        product_cart.splice(index, 1);
+    }
+
+    saveCart();
+    getCartItems();
 }
