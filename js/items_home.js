@@ -102,7 +102,7 @@ fetch('js/items.json')
 
 
                     <div class="icons">
-                        <span><i onclick='addToCart(${JSON.stringify(product)})' class="fa-solid fa-cart-plus"></i></i></span>
+                        <span><i onclick='addToCart(${JSON.stringify(product)})' class="fa-solid fa-cart-plus"></i></span>
                         <span><i class="fa-solid fa-heart"></i></span>
                         <span><i class="fa-solid fa-share"></i></span>
                     </div>

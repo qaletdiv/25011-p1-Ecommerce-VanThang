@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     /* Contact Page Style */
-    .body-contact{
+    /* .body-contact{
         margin-top: 72px !important;
-    }
+    } */
     .contact-page {
       padding: 40px 0;
       background: #fff8e1;
@@ -80,19 +80,70 @@
     .contact-form button:hover {
       background: #ffb300;
     }
+    
+
+.contact-container {
+  width: 80%;
+  padding: 3%;
+}
+
+.contact-page {
+  padding: 5% 0;
+  min-height: 70vh; 
+}
+
+.contact-info {
+  gap: 1%;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    width: 90%;
+    padding: 5%;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
   </style>
 </head>
-<body class="body-contact" >
+<body  >
   <header>
     <div class="container top-nav">
       <a href="index.html" class="logo"><img src="img/logo-black.png" alt=""></a>
      
     </div>
+      <nav>
+            <div class="links container">
+                <i onclick="open_menu()" class="fa-solid fa-bars btn_open_menu"></i>
+                <ul id="menu">
+                    <span onclick="close_menu()" class="bg-overlay"></span>
+                    <i onclick="close_menu()" class="fa-regular fa-circle-xmark btn_close_menu"></i>
+                    <img class="logo_menu" src="img/logo-black.png" alt="">
+                    
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="all_products.html">Products</a></li>
+                    <li><a href="">about us</a></li>
+                    <li class="active" ><a  href="">contact</a></li>
+                </ul>
+
+               
+            </div>
+        </nav>
   </header>
 
   <section class="contact-page">
     <div class="contact-container">
-      <h1>Liên hệ với chúng tôi</h1>
+      <h1>CONTACT US</h1>
       <div class="contact-info">
         <div>
           <i class="fa-solid fa-location-dot"></i>
