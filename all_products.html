@@ -13,8 +13,6 @@
 
 </head>
 <body>
-
-
     <header>
         <div class="container top-nav">
             <a href="index.html" class="logo"><img src="img/logo-black.png" alt=""></a>
@@ -49,37 +47,27 @@
                     <li><a href="">about us</a></li>
                     <li><a href="contact.html">contact</a></li>
                 </ul>
-
-               
             </div>
         </nav>
     </header>
 
-    <div class="cart ">
+    <div class="cart">
         <div class="top_cart">
             <h3>My cart <span class="count_item_cart">(0Item in Cart)</span></h3>
             <span onclick="close_cart()" class="close_cart"><i class="fa-regular fa-circle-xmark"></i></span>
         </div>
-
-        <div class="items_in_cart">
-           
-        
-            
-        </div>
-
+        <div class="items_in_cart"></div>
         <div class="bottom_Cart">
             <div class="total">
                 <p>Cart subtotal</p>
                 <p class="price_cart_total">$0</p>
             </div>
-
             <div class="button_Cart">
                 <a href="checkout.html" class="btn_cart">Proceed to checkout</a>
                 <button onclick="close_cart()" class="btn_cart trans_bg">Shop more</button>
             </div>
         </div>
     </div>
-
 
     <div class="top_page">
         <div class="container">
@@ -88,185 +76,72 @@
         </div>
     </div>
 
-
     <section class="all_products">
         <div class="container">
-
             <span class="btn_filter" onclick="open_close_filter()">
                 filter <i class="fa-solid fa-filter"></i>
             </span>
 
-
             <div class="filter-container">
-  <div class="filter">
-     <h2>filter</h2>
+                <div class="filter">
+                    <h2>filter</h2>
 
-                <div class="filter_item">
-                    <h4>category</h4>
-                    <div class="content">
-
-                        <div class="item">
-                            <span>Phones</span>
-                            <input type="checkbox" value="phone" name="category"   >
+                    <!-- Category -->
+                    <div class="filter_item">
+                        <h4>category</h4>
+                        <div class="content">
+                            <div class="item"><span>Phones</span><input type="checkbox" value="phone" name="category"></div>
+                            <div class="item"><span>Tablets</span><input type="checkbox" value="tablets" name="category"></div>
+                            <div class="item"><span>Electronics</span><input type="checkbox" value="electronics" name="category"></div>
+                            <div class="item"><span>TV</span><input type="checkbox" value="tv" name="category"></div>
+                            <div class="item"><span>Fashion</span><input type="checkbox" value="fashion" name="category"></div>
+                            <div class="item"><span>Watches</span><input type="checkbox" value="watches" name="category"></div>
                         </div>
+                    </div>
 
-                        <div class="item">
-                            <span>Tablets</span>
-                            <input type="checkbox" value="Tablets" name="category"  >
+                    <!-- Brand -->
+                    <div class="filter_item">
+                        <h4>Brand</h4>
+                        <div class="content">
+                            <div class="item"><span>Apple</span><input type="checkbox" value="apple" name="brand"></div>
+                            <div class="item"><span>Samsung</span><input type="checkbox" value="samsung" name="brand"></div>
+                            <div class="item"><span>Intel</span><input type="checkbox" value="intel" name="brand"></div>
+                            <div class="item"><span>Oppo</span><input type="checkbox" value="oppo" name="brand"></div>
+                            <div class="item"><span>Xiaomi</span><input type="checkbox" value="xiaomi" name="brand"></div>
+                            <div class="item"><span>Huawei</span><input type="checkbox" value="huawei" name="brand"></div>
                         </div>
+                    </div>
 
-
-                        <div class="item">
-                            <span>Electronics</span>
-                            <input type="checkbox"  value="Electronics" name="category" >
+                    <!-- Color -->
+                    <div class="filter_item">
+                        <h4>color</h4>
+                        <div class="content">
+                            <div class="item"><span class="color" style="background:red;"></span><input type="checkbox" value="red" name="color"></div>
+                            <div class="item"><span class="color" style="background:blue;"></span><input type="checkbox" value="blue" name="color"></div>
+                            <div class="item"><span class="color" style="background:black;"></span><input type="checkbox" value="black" name="color"></div>
+                            <div class="item"><span class="color" style="background:orangered;"></span><input type="checkbox" value="orangered" name="color"></div>
+                            <div class="item"><span class="color" style="background:green;"></span><input type="checkbox" value="green" name="color"></div>
+                            <div class="item"><span class="color" style="background:yellow;"></span><input type="checkbox" value="yellow" name="color"></div>
                         </div>
-
-
-                        <div class="item">
-                            <span>TV</span>
-                            <input type="checkbox" value="TV" name="category" >
-                        </div>
-
-                        <div class="item">
-                            <span>Fashion</span>
-                            <input type="checkbox" value="Fashion" name="category" >
-                        </div>
-
-                        <div class="item">
-                            <span>Watches</span>
-                            <input type="checkbox" value="Watches" name="category"  >
-                        </div>
-
                     </div>
                 </div>
 
-
-                <div class="filter_item">
-                    <h4>Brand</h4>
-                    <div class="content">
-
-                        <div class="item">
-                            <span>Apple</span>
-                            <input type="checkbox" value="Apple" name="brand"  >
-                        </div>
-
-                        <div class="item">
-                            <span>samsung</span>
-                            <input type="checkbox" value="samsung" name="brand"  >
-                        </div>
-
-
-                        <div class="item">
-                            <span>intel</span>
-                            <input type="checkbox"  value="intel" name="brand"  >
-                        </div>
-
-
-                        <div class="item">
-                            <span>oppo</span>
-                            <input type="checkbox" value="oppo" name="brand" >
-                        </div>
-
-                        <div class="item">
-                            <span>xiaomi</span>
-                            <input type="checkbox" value="xiaomi" name="brand" >
-                        </div>
-
-                        <div class="item">
-                            <span>huawei</span>
-                            <input type="checkbox" value="huawei" name="brand" > 
-                        </div>
-
-                    </div>
+                <div class="sort">
+                    <select id="sort">
+                        <option value="">-- Sắp xếp --</option>
+                        <option value="price-asc">Giá tăng dần</option>
+                        <option value="price-desc">Giá giảm dần</option>
+                        <option value="name-asc">Tên A → Z</option>
+                        <option value="name-desc">Tên Z → A</option>
+                    </select>
                 </div>
-
-
-
-
-                <div class="filter_item">
-                    <h4>color</h4>
-                    <div class="content">
-
-                        <div class="item">
-                            <span class="color" style="background: red;"></span>
-                            <input type="checkbox" value="red" name="color"  >
-                        </div>
-
-
-                        
-                        <div class="item">
-                            <span class="color" style="background: blue;"></span>
-                            <input type="checkbox"  value="blue" name="color">
-                        </div>
-
-
-                        
-                        <div class="item">
-                            <span class="color" style="background: black;"></span>
-                            <input type="checkbox" value="black" name="color"  >
-                        </div>
-
-
-                        <div class="item">
-                            <span class="color" style="background: orangered;"></span>
-                            <input type="checkbox" value="orangered" name="color" >
-                        </div>
-
-                        <div class="item">
-                            <span class="color" style="background: green;"></span>
-                            <input type="checkbox" value="green" name="color" >
-                        </div>
-
-
-                        <div class="item">
-                            <span class="color" style="background: yellow;"></span>
-                            <input type="checkbox"value="yellow" name="color"  >
-                        </div>
-
-
-
-
-                    </div>
-                </div>
-  </div>
-
-  <div class="sort">
-    <select id="sort">
-      <option value="">-- Sắp xếp --</option>
-      <option value="price-asc">Giá tăng dần</option>
-      <option value="price-desc">Giá giảm dần</option>
-      <option value="name-asc">Tên A → Z</option>
-      <option value="name-desc">Tên Z → A</option>
-    </select>
-  </div>
-</div>
-
-
-
-
-          
-
-            <div id="products_dev" class="products_dev">
-
             </div>
+
+            <div id="products_dev" class="products_dev"></div>
         </div>
-
-
-
-        <!-- <div class="pagination">
-            <span class="btn_page prev"><i class="fa-solid fa-backward-step"></i></span>
-           <a href="#"> <span class="num_page active">1</span></a>
-          <a href="#">  <span class="num_page">2</span></a>
-          <a href="#">  <span class="num_page">3</span></a>
-            <span class="btn_page next"><i class="fa-solid fa-forward-step"></i></span>
-        </div> -->
     </section>
 
-
-
-    <div class="back_to_top">
-        <p>back to top</p>
-    </div>
+    <div class="back_to_top"><p>back to top</p></div>
 
     <footer>
         <div class="container">
@@ -279,13 +154,10 @@
                         <h6>(+100) 123 456 7890</h6>
                     </div>
                 </div>
-
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit consectetur.</p>
             </div>
-
             <div class="row">
                 <h4>FAQs & Help</h4>
-
                 <div class="links">
                     <a href="#">F.A.Q.’s</a>
                     <a href="#">Ordering Tracking</a>
@@ -294,11 +166,8 @@
                     <a href="#">Help Center</a>
                 </div>
             </div>
-
-
             <div class="row">
                 <h4>Shipping & Delivery</h4>
-
                 <div class="links">
                     <a href="#">Delivery Information</a>
                     <a href="#">Discount</a>
@@ -307,11 +176,8 @@
                     <a href="#">Shipping Guide</a>
                 </div>
             </div>
-
-
             <div class="row">
                 <h4>Information</h4>
-
                 <div class="links">
                     <a href="#">Popular</a>
                     <a href="#">Our Services</a>
@@ -320,14 +186,10 @@
                     <a href="#">Terms & Condition</a>
                 </div>
             </div>
-
-
         </div>
-
         <div class="bottom_footer">
             <div class="container">
                 <p>Copyright &copy; <span>Topico.</span> all rights reserved</p>
-
                 <div class="payment_img">
                     <img src="img/payment-1.png" alt="">
                     <img src="img/payment-2.png" alt="">
@@ -337,12 +199,9 @@
             </div>
         </div>
     </footer>
-    
-
-    
 
     <script src="js/main.js"></script>
     <script src="js/all_products.js"></script>
-    <script src="js/sreach.js" ></script>
+    <script src="js/sreach.js"></script>
 </body>
 </html>

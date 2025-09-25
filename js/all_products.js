@@ -1,7 +1,5 @@
 // all_products.js
-
 document.addEventListener("DOMContentLoaded", () => {
-
     // ---- Filter toggle ----
     const filter = document.querySelector(".filter");
     if(filter){
@@ -23,9 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ---- Get selected filters ----
     function getSelectedFilters() {
-        const categories = [...document.querySelectorAll("input[name='category']:checked")].map(el => el.value);
-        const brands = [...document.querySelectorAll("input[name='brand']:checked")].map(el => el.value);
-        const colors = [...document.querySelectorAll("input[name='color']:checked")].map(el => el.value);
+        const categories = [...document.querySelectorAll("input[name='category']:checked")].map(el => el.value.toLowerCase());
+        const brands = [...document.querySelectorAll("input[name='brand']:checked")].map(el => el.value.toLowerCase());
+        const colors = [...document.querySelectorAll("input[name='color']:checked")].map(el => el.value.toLowerCase());
         return { categories, brands, colors };
     }
 
@@ -34,9 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const { categories, brands, colors } = getSelectedFilters();
 
         let filtered = all_products_json.filter(product => {
-            const matchCategory = categories.length ? categories.includes(product.category) : true;
-            const matchBrand = brands.length ? brands.includes(product.brand) : true;
-            const matchColor = colors.length ? colors.includes(product.color) : true;
+            const matchCategory = categories.length ? categories.includes(product.category?.toLowerCase()) : true;
+            const matchBrand = brands.length ? brands.includes(product.brand?.toLowerCase()) : true;
+            const matchColor = colors.length ? colors.includes(product.color?.toLowerCase()) : true;
 
             return matchCategory && matchBrand && matchColor;
         });
@@ -81,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ---- Render products ----
     function renderProducts(products) {
         const products_dev = document.getElementById("products_dev");
-        if(!products_dev) return; // tránh lỗi nếu không có element
+        if(!products_dev) return;
 
         products_dev.innerHTML = ""; 
 
@@ -117,5 +115,4 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
         });
     }
-
 });

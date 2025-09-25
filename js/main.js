@@ -1,5 +1,3 @@
-// main.js (REPLACEMENT) -----------------------------------------
-
 // ========== CART TOGGLE ==========
 var cart = document.querySelector('.cart');
 
@@ -19,7 +17,6 @@ function ChangeItemImage(img) {
 }
 
 // ========== CART LOGIC ==========
-// đọc giỏ hàng từ localStorage (chuẩn hóa)
 let product_cart = JSON.parse(localStorage.getItem("cart")) || [];
 product_cart = product_cart.map(item => ({
     ...item,
@@ -38,7 +35,6 @@ function saveCart() {
     localStorage.setItem("cart", JSON.stringify(product_cart));
 }
 
-// Thay đổi: addToCart chấp nhận product object và quantity
 function addToCart(product, quantity = 1) {
     if (!product) return;
     const idNum = Number(product.id);
@@ -48,7 +44,6 @@ function addToCart(product, quantity = 1) {
     if (existIndex > -1) {
         product_cart[existIndex].quantity = Number(product_cart[existIndex].quantity || 0) + Number(quantity);
     } else {
-        // push normalized item
         product_cart.push({
             id: idNum,
             name: product.name,
@@ -61,7 +56,6 @@ function addToCart(product, quantity = 1) {
     getCartItems();
 }
 
-// render giỏ hàng
 function getCartItems() {
     let total_price = 0;
     let total_quantity = 0;
@@ -79,14 +73,12 @@ function getCartItems() {
             <div class="content">
                 <h4>${p.name}</h4>
                 <p class="price_cart">$${Number(p.price).toFixed(2)}</p>
-
                 <div class="quantity-controls">
                     <button class="qty-btn" onclick="changeQuantity(${i}, -1)">-</button>
                     <span class="qty">${p.quantity}</span>
                     <button class="qty-btn" onclick="changeQuantity(${i}, 1)">+</button>
                     <p class="line_total"> = $${subtotal.toFixed(2)}</p>
                 </div>
-
             </div>
             <button onClick="remove_from_cart(${i})" class="delete_item"><i class="fa-solid fa-trash-can"></i></button>
         </div>
@@ -100,14 +92,12 @@ function getCartItems() {
     if (price_cart_total) price_cart_total.innerHTML = "$" + total_price.toFixed(2);
 }
 
-// xóa sản phẩm khỏi giỏ
 function remove_from_cart(index) {
     product_cart.splice(index, 1);
     saveCart();
     getCartItems();
 }
 
-// thay đổi số lượng (trên giao diện cart)
 function changeQuantity(index, change) {
     if (!product_cart[index]) return;
     product_cart[index].quantity = Number(product_cart[index].quantity || 0) + Number(change);
@@ -120,14 +110,11 @@ function changeQuantity(index, change) {
     getCartItems();
 }
 
-// khi load trang thì render lại giỏ
 window.addEventListener("DOMContentLoaded", getCartItems);
 
 // ========== PRODUCT DETAIL PAGE ==========
 const urlParams = new URLSearchParams(window.location.search);
 const productIdParam = urlParams.get("id");
-
-// chỉ chạy nếu có container detail
 const productDetailContainer = document.getElementById("product-detail");
 
 if (productDetailContainer && productIdParam !== null) {
@@ -139,14 +126,13 @@ if (productDetailContainer && productIdParam !== null) {
             return res.json();
         })
         .then(products => {
-            // tìm sản phẩm (id kiểu number)
             const product = products.find(p => Number(p.id) === productId);
             if (!product) {
                 productDetailContainer.innerHTML = "<p>Không tìm thấy sản phẩm!</p>";
                 return;
             }
 
-            // render phần chi tiết (ảnh + info + quantity controls + nút add)
+            // render chi tiết
             productDetailContainer.innerHTML = `
                 <div class="img_item">
                     <div class="big_img">
@@ -157,7 +143,6 @@ if (productDetailContainer && productIdParam !== null) {
                         <img onclick="ChangeItemImage(this.src)" src="${product.img_hover || product.img}" alt="">
                     </div>
                 </div>
-
                 <div class="details_item">
                     <h1 class="name">${product.name}</h1>
                     <div class="price">
@@ -166,25 +151,16 @@ if (productDetailContainer && productIdParam !== null) {
                     </div>
                     <h5>Availability: <span>In Stock</span></h5>
                     <p class="text_p">Sản phẩm chính hãng, chất lượng đảm bảo.</p>
-
                     <div class="quantity_control">
                         <button id="decreaseQty" class="qty-btn">-</button>
                         <input type="number" id="productQty" value="1" min="1" />
                         <button id="increaseQty" class="qty-btn">+</button>
                     </div>
-
                     <button id="add-to-cart-btn" class="btn primary">Add to cart <i class="fa-solid fa-cart-arrow-down"></i></button>
-
-                    <div class="icons" style="margin-top:10px">
-                        <span><i class="fa-regular fa-heart"></i></span>
-                        <span><i class="fa-solid fa-sliders"></i></span>
-                        <span><i class="fa-solid fa-print"></i></span>
-                        <span><i class="fa-solid fa-share-nodes"></i></span>
-                    </div>
                 </div>
             `;
 
-            // quantity control listeners
+            // quantity control
             const qtyInput = document.getElementById("productQty");
             document.getElementById("decreaseQty").addEventListener("click", () => {
                 if (Number(qtyInput.value) > 1) qtyInput.value = Number(qtyInput.value) - 1;
@@ -193,53 +169,60 @@ if (productDetailContainer && productIdParam !== null) {
                 qtyInput.value = Number(qtyInput.value) + 1;
             });
 
-            // Add to cart từ trang chi tiết
             document.getElementById("add-to-cart-btn").addEventListener("click", () => {
                 const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
-                addToCart(product, qty); // sử dụng hàm addToCart đã chuẩn hóa
-                // tùy chọn: mở cart để user thấy
+                addToCart(product, qty);
                 open_cart();
             });
 
-            // ========== Random related products (ưu tiên cùng category) ==========
+            // related products (Swiper)
             let relatedCandidates = products.filter(p => Number(p.id) !== productId);
-
-            // ưu tiên cùng category (nếu có) — nếu không đủ thì lấy từ toàn bộ
             const sameCat = relatedCandidates.filter(p => p.category === product.category);
             relatedCandidates = (sameCat.length >= 4) ? sameCat : relatedCandidates;
+            const related = relatedCandidates.sort(() => 0.5 - Math.random()).slice(0, 6);
 
-            // random và lấy tối đa 4
-            const related = relatedCandidates.sort(() => 0.5 - Math.random()).slice(0, 4);
-
-            // render related dưới main (chèn sau #product-detail)
             const relatedHtml = `
                 <section class="related_products">
                     <div class="container">
-                        <div class="product_list related_grid icons">
                         <h3>Related Products</h3>
-
-                            ${related.map(r => `
-                                <div class="product_card ">
-                                    <a href="product_detail.html?id=${r.id}">
-                                        <img src="${r.img}" alt="${r.name}" onmouseover="this.src='${r.img_hover || r.img}'" onmouseout="this.src='${r.img}'">
-                                        <h4>${r.name}</h4>
-                                    </a>
-                                    <p class="price">$${Number(r.price).toFixed(2)} ${r.old_price ? `<span class="old-price">$${Number(r.old_price).toFixed(2)}</span>` : ''}</p>
-                                    <button class="btn add-related" data-id="${r.id}" data-name="${r.name}" data-price="${r.price}" data-img="${r.img}">Add to cart</button>
-                                </div>
-                            `).join("")}
+                        <div class="swiper relatedSwiper">
+                            <div class="swiper-wrapper">
+                                ${related.map(r => `
+                                    <div class="swiper-slide">
+                                        <div class="product_card">
+                                            <a href="product_detail.html?id=${r.id}">
+                                                <img src="${r.img}" alt="${r.name}" 
+                                                     onmouseover="this.src='${r.img_hover || r.img}'" 
+                                                     onmouseout="this.src='${r.img}'">
+                                                <h4>${r.name}</h4>
+                                            </a>
+                                            <p class="price">
+                                                $${Number(r.price).toFixed(2)} 
+                                                ${r.old_price ? `<span class="old-price">$${Number(r.old_price).toFixed(2)}</span>` : ""}
+                                            </p>
+                                            <button class="btn add-related" 
+                                                data-id="${r.id}" 
+                                                data-name="${r.name}" 
+                                                data-price="${r.price}" 
+                                                data-img="${r.img}">
+                                                Add to cart
+                                            </button>
+                                        </div>
+                                    </div>
+                                `).join("")}
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            
                         </div>
                     </div>
                 </section>
             `;
 
-            // chèn (nếu đã có phần related trước đó thì remove trước)
-            // tránh duplicate khi script chạy nhiều lần
             const prevRelated = document.querySelector(".related_products");
             if (prevRelated) prevRelated.remove();
             productDetailContainer.insertAdjacentHTML('afterend', relatedHtml);
 
-            // gắn event cho nút Add to cart trong related
             document.querySelectorAll(".add-related").forEach(btn => {
                 btn.addEventListener("click", () => {
                     const p = {
@@ -249,17 +232,36 @@ if (productDetailContainer && productIdParam !== null) {
                         img: btn.dataset.img
                     };
                     addToCart(p, 1);
+                    open_cart();
                 });
             });
 
+            new Swiper(".relatedSwiper", {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                loop: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                breakpoints: {
+                    320: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 4 },
+                },
+            });
         })
         .catch(err => {
             console.error("Lỗi load sản phẩm:", err);
             productDetailContainer.innerHTML = "<p>Lỗi tải sản phẩm!</p>";
         });
-} // end product detail
+}
 
-// ========== INDEX PAGE (nếu có #product-list) ==========
+// ========== INDEX PAGE ==========
 const productList = document.getElementById("product-list");
 if (productList) {
     fetch("js/items.json")
@@ -285,7 +287,6 @@ if (productList) {
                 </div>
             `).join("");
 
-            // Gắn sự kiện Add to Cart
             document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
                 btn.addEventListener("click", () => {
                     const product = {
@@ -302,7 +303,6 @@ if (productList) {
         .catch(err => console.error("Lỗi load sản phẩm:", err));
 }
 
-// utility: simple encode (avoid breaking attributes)
 function encodeHTML(str){
     if (!str) return "";
     return String(str).replace(/"/g,'&quot;').replace(/'/g,"&#39;");
