@@ -213,7 +213,6 @@ if (productDetailContainer && productIdParam !== null) {
                             </div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
-                            
                         </div>
                     </div>
                 </section>
@@ -274,6 +273,8 @@ if (productList) {
                 <div class="product">
                     <a href="product_detail.html?id=${product.id}">
                         <img src="${product.img}" alt="${product.name}">
+                    </a>
+                    <a href="product_detail.html?id=${product.id}">
                         <h3>${product.name}</h3>
                     </a>
                     <p>$${Number(product.price).toFixed(2)}</p>

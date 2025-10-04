@@ -56,7 +56,7 @@
     "name": "Android Dual SIM Smart Phone G3",
     "price": 115,
     "old_price": 235,
-    "category": "phone",
+    "category": "Tablets",
     "color": "Green"
   },
   {
@@ -66,7 +66,7 @@
     "name": "Android Dual SIM Smart Phone G3",
     "price": 225,
     "old_price": 280,
-    "category": "phone",
+    "category": "Tablets",
     "color": "Silver"
   },
   {
@@ -76,17 +76,17 @@
     "name": "Android Dual SIM Smart Phone G3",
     "price": 150,
     "old_price": 200,
-    "category": "phone",
+    "category": "Tablets",
     "color": "Gold"
   },
-  {
+  { 
     "id": 8,
     "img": "img/product/product-1.jpg",
     "img_hover": "img/product/product1.jpg",
     "name": "Android Smart Phone G3 (New Model)",
     "price": 180,
     "old_price": null,
-    "category": "phone",
+    "category": "Tablets",
     "color": "Black"
   },
   {
@@ -96,7 +96,7 @@
     "name": "Android Smart Phone G3 (Pro)",
     "price": 300,
     "old_price": null,
-    "category": "phone",
+    "category": "Tablets",
     "color": "Blue"
   },
   {
@@ -106,7 +106,7 @@
     "name": "Android Smart Phone G3 (Lite)",
     "price": 250,
     "old_price": null,
-    "category": "phone",
+    "category": "Electronics",
     "color": "White"
   },
   {
@@ -116,7 +116,7 @@
     "name": "Android Smart Phone G3 (Mini)",
     "price": 120,
     "old_price": null,
-    "category": "phone",
+    "category": "Electronics",
     "color": "Red"
   },
   {
@@ -126,7 +126,7 @@
     "name": "Android Smart Phone G3 (Standard)",
     "price": 90,
     "old_price": null,
-    "category": "phone",
+    "category": "Electronics",
     "color": "Gray"
   },
   {
@@ -136,7 +136,7 @@
     "name": "Android Smart Phone G3 (Basic)",
     "price": 129,
     "old_price": null,
-    "category": "phone",
+    "category": "Electronics",
     "color": "Black"
   },
   {
@@ -146,7 +146,7 @@
     "name": "Android Smart Phone G3 (Edition)",
     "price": 180,
     "old_price": null,
-    "category": "phone",
+    "category": "Electronics",
     "color": "Silver"
   },
   {
@@ -156,7 +156,158 @@
     "name": "Student",
     "price": 60,
     "old_price": null,
-    "category": "Watches",
+    "category": "TV",
     "color": "Brown"
   }
+  ,{
+    "id": 16,
+    "img": "img/product/product-4.jpg",
+    "img_hover": "img/product/product4.jpg",
+    "name": "Android Smart Phone G3 (Mini)",
+    "price": 120,
+    "old_price": null,
+    "category": "TV",
+    "color": "Red"
+  },
+  {
+    "id": 17,
+    "img": "img/product/product-5.jpg",
+    "img_hover": "img/product/product5.jpg",
+    "name": "Android Smart Phone G3 (Standard)",
+    "price": 90,
+    "old_price": null,
+    "category": "TV",
+    "color": "Gray"
+  },
+  {
+    "id": 18,
+    "img": "img/product/product-6.jpg",
+    "img_hover": "img/product/product6.jpg",
+    "name": "Android Smart Phone G3 (Basic)",
+    "price": 129,
+    "old_price": null,
+    "category": "TV",
+    "color": "Black"
+  },
+  {
+    "id": 19,
+    "img": "img/product/product-7.jpg",
+    "img_hover": "img/product/product7.jpg",
+    "name": "Android Smart Phone G3 (Edition)",
+    "price": 180,
+    "old_price": null,
+    "category": "TV",
+    "color": "Silver"
+  },
+  {
+    "id": 20,
+    "img": "img/product/product-8.jpg",
+    "img_hover": "img/product/product8.jpg",
+    "name": "Student",
+    "price": 60,
+    "old_price": null,
+    "category": "Fashion",
+    "color": "Brown"
+  }
+  ,{
+    "id": 21,
+    "img": "img/product/product-4.jpg",
+    "img_hover": "img/product/product4.jpg",
+    "name": "Android Smart Phone G3 (Mini)",
+    "price": 120,
+    "old_price": null,
+    "category": "Fashion",
+    "color": "Red"
+  },
+  {
+    "id": 22,
+    "img": "img/product/product-5.jpg",
+    "img_hover": "img/product/product5.jpg",
+    "name": "Android Smart Phone G3 (Standard)",
+    "price": 90,
+    "old_price": null,
+    "category": "Fashion",
+    "color": "Gray"
+  },
+  {
+    "id": 23,
+    "img": "img/product/product-6.jpg",
+    "img_hover": "img/product/product6.jpg",
+    "name": "Android Smart Phone G3 (Basic)",
+    "price": 129,
+    "old_price": null,
+    "category": "Fashion",
+    "color": "Black"
+  },
+  {
+    "id": 24,
+    "img": "img/product/product-7.jpg",
+    "img_hover": "img/product/product7.jpg",
+    "name": "Android Smart Phone G3 (Edition)",
+    "price": 180,
+    "old_price": null,
+    "category": "Fashion",
+    "color": "Silver"
+  },
+  {
+    "id": 20,
+    "img": "img/product/product-8.jpg",
+    "img_hover": "img/product/product8.jpg",
+    "name": "Student",
+    "price": 60,
+    "old_price": null,
+    "category": "Watches",
+    "color": "Brown"
+  },
+   {
+    "id": 21,
+    "img": "img/product/product-8.jpg",
+    "img_hover": "img/product/product8.jpg",
+    "name": "Student",
+    "price": 60,
+    "old_price": null,
+    "category": "Fashion",
+    "color": "Brown"
+  }
+  ,{
+    "id": 21,
+    "img": "img/product/product-4.jpg",
+    "img_hover": "img/product/product4.jpg",
+    "name": "Android Smart Phone G3 (Mini)",
+    "price": 120,
+    "old_price": null,
+    "category": "Watches",
+    "color": "Red"
+  },
+  {
+    "id": 22,
+    "img": "img/product/product-5.jpg",
+    "img_hover": "img/product/product5.jpg",
+    "name": "Android Smart Phone G3 (Standard)",
+    "price": 90,
+    "old_price": null,
+    "category": "Watches",
+    "color": "Gray"
+  },
+  {
+    "id": 23,
+    "img": "img/product/product-6.jpg",
+    "img_hover": "img/product/product6.jpg",
+    "name": "Android Smart Phone G3 (Basic)",
+    "price": 129,
+    "old_price": null,
+    "category": "Watches",
+    "color": "Black"
+  },
+  {
+    "id": 24,
+    "img": "img/product/product-6.jpg",
+    "img_hover": "img/product/product6.jpg",
+    "name": "Android Smart Phone G3 (Basic)",
+    "price": 129,
+    "old_price": null,
+    "category": "Watches",
+    "color": "Black"
+  }
+  
 ]

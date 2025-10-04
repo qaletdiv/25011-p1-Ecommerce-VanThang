@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.searchInput');
+    const searchBtn = document.querySelector('.searchBtn'); // thêm nút search
     const resultsDiv = document.querySelector('.search-results');
 
-    if (!searchInput || !resultsDiv) return;
+    if (!searchInput || !resultsDiv || !searchBtn) return;
 
     let products = [];
 
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lọc dữ liệu theo search + filter
     function filterProducts() {
-        const query = searchInput.value.toLowerCase();
+        const query = searchInput.value.toLowerCase().trim();
         const { categories, brands, colors } = getSelectedFilters();
 
         return products.filter(product => {
@@ -38,33 +39,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   function renderResults(filtered) {
-    if (!searchInput.value.trim() || filtered.length === 0) {
-        resultsDiv.style.display = 'none';
+    // Render kết quả
+    function renderResults(filtered) {
         resultsDiv.innerHTML = '';
-        return;
+
+        if (!searchInput.value.trim()) {
+            resultsDiv.style.display = 'none';
+            return;
+        }
+
+        if (filtered.length === 0) {
+            resultsDiv.innerHTML = `<p class="no-results">Không có sản phẩm nào được tìm thấy</p>`;
+            resultsDiv.style.display = 'block';
+            return;
+        }
+
+        resultsDiv.innerHTML = filtered.map(p => `
+            <div class="product-item" onclick="window.location.href='product_detail.html?id=${p.id}'">
+                <img src="${p.img}" alt="${p.name}">
+                <div>
+                    <p>${p.name}</p>
+                    <p>$${p.price}</p>
+                </div>
+            </div>
+        `).join('');
+
+        resultsDiv.style.display = 'block';
     }
 
-    resultsDiv.innerHTML = filtered.map(p => `
-        <div class="product-item" onclick="window.location.href='product_detail.html?id=${p.id}'">
-            <img src="${p.img}" alt="${p.name}">
-            <div>
-                <p>${p.name}</p>
-                <p>$${p.price}</p>
-            </div>
-        </div>
-    `).join('');
-
-    resultsDiv.style.display = 'block';
-}
-
-    // Khi gõ search
-    searchInput.addEventListener('input', () => {
+    // Chỉ tìm khi bấm nút search
+    searchBtn.addEventListener('click', () => {
         const filtered = filterProducts();
         renderResults(filtered);
     });
 
-    // Khi click vào filter
+    // Khi click vào filter cũng cần tìm lại
     document.querySelectorAll(".filter input[type='checkbox']").forEach(input => {
         input.addEventListener('change', () => {
             const filtered = filterProducts();
@@ -74,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ẩn dropdown khi click ra ngoài
     document.addEventListener('click', (e) => {
-        if (!searchInput.contains(e.target) && !resultsDiv.contains(e.target)) {
+        if (!searchInput.contains(e.target) && !resultsDiv.contains(e.target) && !searchBtn.contains(e.target)) {
             resultsDiv.style.display = 'none';
         }
     });
