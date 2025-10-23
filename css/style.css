@@ -2060,6 +2060,33 @@ i.fab.fa-youtube:hover {
     font-size: 0.9rem;
   }
 }
+.img_product {
+  display: block;         /* giúp thẻ <a> hoạt động như <div> */
+  position: relative;     /* giữ nguyên hiệu ứng hover */
+  overflow: hidden;
+}
+
+.img_product img {
+  width: 100%;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.img_product:hover .img_hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.img_hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
 
 /* ================= Tablet nhỏ (max-width: 768px) ================= */
 @media (max-width: 768px) {

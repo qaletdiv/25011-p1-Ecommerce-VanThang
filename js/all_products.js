@@ -12,12 +12,36 @@ document.addEventListener("DOMContentLoaded", () => {
     let all_products_json = [];
 
     fetch('js/items.json')
-        .then(response => response.json())
-        .then(data => {
-            all_products_json = data; 
-            renderProducts(all_products_json); 
-        })
-        .catch(err => console.error("Error loading JSON:", err));
+    .then(response => response.json())
+    .then(data => {
+        all_products_json = data; 
+
+        // ---- Lấy category từ URL (nếu có) ----
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryFromURL = urlParams.get("category");
+
+        if (categoryFromURL) {
+            // Tích sẵn checkbox tương ứng
+            const checkbox = document.querySelector(
+                `input[name='category'][value='${categoryFromURL}']`
+            );
+            if (checkbox) {
+                checkbox.checked = true;
+            }
+
+            // Lọc theo category trong URL
+            const filtered = all_products_json.filter(
+                (product) =>
+                    product.category?.toLowerCase() ===
+                    categoryFromURL.toLowerCase()
+            );
+            renderProducts(filtered);
+        } else {
+            // Nếu không có category trong URL thì render tất cả
+            renderProducts(all_products_json);
+        }
+    })
+    .catch(err => console.error("Error loading JSON:", err));
 
     // ---- Get selected filters ----
     function getSelectedFilters() {
@@ -77,42 +101,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ---- Render products ----
-    function renderProducts(products) {
-        const products_dev = document.getElementById("products_dev");
-        if(!products_dev) return;
+  function renderProducts(products) {
+    const products_dev = document.getElementById("products_dev");
+    if(!products_dev) return;
 
-        products_dev.innerHTML = ""; 
+    products_dev.innerHTML = ""; 
 
-        products.forEach(product => {
-            const old_price_pargrahp = product.old_price ? `<p class="old_price">$${product.old_price}</p>` : "";
-            const percent_disc_div = product.old_price ? `<span class="sale_present">%${Math.floor((product.old_price - product.price) / product.old_price * 100)}</span>` : "";
+    products.forEach(product => {
+        const old_price_pargrahp = product.old_price ? `<p class="old_price">$${product.old_price}</p>` : "";
+        const percent_disc_div = product.old_price ? `<span class="sale_present">%${Math.floor((product.old_price - product.price) / product.old_price * 100)}</span>` : "";
 
-            products_dev.innerHTML += `
-                <div class="product swiper-slide">
-                    <div class="icons">
-                        <span><i onclick='addToCart(${JSON.stringify(product)})' class="fa-solid fa-cart-plus"></i></span>
-                        <span><i class="fa-solid fa-heart"></i></span>
-                        <span><i class="fa-solid fa-share"></i></span>
-                    </div>
-                    ${percent_disc_div}
-                    <div class="img_product">
-                        <img src="${product.img}" alt="">
-                        <img class="img_hover" src="${product.img_hover}" alt="">
-                    </div>
-                    <h3 class="name_product"><a href="product_detail.html?id=${product.id}">${product.name}</a></h3>
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <div class="price">
-                        <p><span>$${product.price}</span></p>
-                        ${old_price_pargrahp}
-                    </div>
+        products_dev.innerHTML += `
+            <div class="product swiper-slide">
+                <div class="icons">
+                    <span><i onclick='addToCart(${JSON.stringify(product)})' class="fa-solid fa-cart-plus"></i></span>
+                    <span><i class="fa-solid fa-heart"></i></span>
+                    <span><i class="fa-solid fa-share"></i></span>
                 </div>
-            `;
-        });
-    }
+                ${percent_disc_div}
+                <a href="product_detail.html?id=${product.id}" class="img_product">
+                    <img src="${product.img}" alt="">
+                    <img class="img_hover" src="${product.img_hover}" alt="">
+                </a>
+                <h3 class="name_product">
+                    <a href="product_detail.html?id=${product.id}">${product.name}</a>
+                </h3>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="price">
+                    <p><span>$${product.price}</span></p>
+                    ${old_price_pargrahp}
+                </div>
+            </div>
+        `;
+    });
+}
+
 });
