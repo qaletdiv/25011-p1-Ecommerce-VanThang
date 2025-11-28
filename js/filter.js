@@ -41,7 +41,7 @@ function renderProducts(list) {
     item.classList.add("swiper-slide", "product-item");
     item.innerHTML = `
       <div class="product-card">
-        <img src="${p.image}" alt="${p.name}">
+        <img src="${p.img}" alt="${p.name}">
         <h4>${p.name}</h4>
         <p>$${p.price}</p>
       </div>

@@ -7,7 +7,8 @@
     "price": 185,
     "old_price": 225,
     "category": "phone",
-    "color": "Black"
+    "color": "Black",
+    "brand": "Samsung"
   },
   {
     "id": 1,
@@ -17,7 +18,8 @@
     "price": 100,
     "old_price": 120,
     "category": "phone",
-    "color": "White"
+    "color": "White",
+    "brand": "Oppo"
   },
   {
     "id": 2,
@@ -27,7 +29,8 @@
     "price": 140,
     "old_price": 200,
     "category": "phone",
-    "color": "Blue"
+    "color": "Blue",
+    "brand": "Xiaomi"
   },
   {
     "id": 3,
@@ -37,7 +40,8 @@
     "price": 90,
     "old_price": 110,
     "category": "phone",
-    "color": "Red"
+    "color": "Red",
+    "brand": "Huawei"
   },
   {
     "id": 4,
@@ -47,7 +51,8 @@
     "price": 350,
     "old_price": 420,
     "category": "phone",
-    "color": "Gray"
+    "color": "Gray",
+    "brand": "Apple"
   },
   {
     "id": 5,
@@ -57,7 +62,8 @@
     "price": 115,
     "old_price": 235,
     "category": "Tablets",
-    "color": "Green"
+    "color": "Green",
+    "brand": "Samsung"
   },
   {
     "id": 6,
@@ -67,7 +73,8 @@
     "price": 225,
     "old_price": 280,
     "category": "Tablets",
-    "color": "Silver"
+    "color": "Silver",
+    "brand": "Apple"
   },
   {
     "id": 7,
@@ -77,9 +84,10 @@
     "price": 150,
     "old_price": 200,
     "category": "Tablets",
-    "color": "Gold"
+    "color": "Gold",
+    "brand": "Oppo"
   },
-  { 
+  {
     "id": 8,
     "img": "img/product/product-1.jpg",
     "img_hover": "img/product/product1.jpg",
@@ -87,7 +95,8 @@
     "price": 180,
     "old_price": null,
     "category": "Tablets",
-    "color": "Black"
+    "color": "Black",
+    "brand": "Xiaomi"
   },
   {
     "id": 9,
@@ -97,7 +106,8 @@
     "price": 300,
     "old_price": null,
     "category": "Tablets",
-    "color": "Blue"
+    "color": "Blue",
+    "brand": "Huawei"
   },
   {
     "id": 10,
@@ -107,7 +117,8 @@
     "price": 250,
     "old_price": null,
     "category": "Electronics",
-    "color": "White"
+    "color": "White",
+    "brand": "Intel"
   },
   {
     "id": 11,
@@ -117,7 +128,8 @@
     "price": 120,
     "old_price": null,
     "category": "Electronics",
-    "color": "Red"
+    "color": "Red",
+    "brand": "Samsung"
   },
   {
     "id": 12,
@@ -127,7 +139,8 @@
     "price": 90,
     "old_price": null,
     "category": "Electronics",
-    "color": "Gray"
+    "color": "Gray",
+    "brand": "Oppo"
   },
   {
     "id": 13,
@@ -137,7 +150,8 @@
     "price": 129,
     "old_price": null,
     "category": "Electronics",
-    "color": "Black"
+    "color": "Black",
+    "brand": "Xiaomi"
   },
   {
     "id": 14,
@@ -147,7 +161,8 @@
     "price": 180,
     "old_price": null,
     "category": "Electronics",
-    "color": "Silver"
+    "color": "Silver",
+    "brand": "Apple"
   },
   {
     "id": 15,
@@ -157,9 +172,11 @@
     "price": 60,
     "old_price": null,
     "category": "TV",
-    "color": "Brown"
-  }
-  ,{
+    "color": "Brown",
+    "brand": "Samsung"
+  },
+
+  {
     "id": 16,
     "img": "img/product/product-4.jpg",
     "img_hover": "img/product/product4.jpg",
@@ -167,8 +184,10 @@
     "price": 120,
     "old_price": null,
     "category": "TV",
-    "color": "Red"
+    "color": "Red",
+    "brand": "Oppo"
   },
+
   {
     "id": 17,
     "img": "img/product/product-5.jpg",
@@ -177,8 +196,10 @@
     "price": 90,
     "old_price": null,
     "category": "TV",
-    "color": "Gray"
+    "color": "Gray",
+    "brand": "Xiaomi"
   },
+
   {
     "id": 18,
     "img": "img/product/product-6.jpg",
@@ -187,8 +208,10 @@
     "price": 129,
     "old_price": null,
     "category": "TV",
-    "color": "Black"
+    "color": "Black",
+    "brand": "Huawei"
   },
+
   {
     "id": 19,
     "img": "img/product/product-7.jpg",
@@ -197,117 +220,7 @@
     "price": 180,
     "old_price": null,
     "category": "TV",
-    "color": "Silver"
-  },
-  {
-    "id": 20,
-    "img": "img/product/product-8.jpg",
-    "img_hover": "img/product/product8.jpg",
-    "name": "Student",
-    "price": 60,
-    "old_price": null,
-    "category": "Fashion",
-    "color": "Brown"
+    "color": "Silver",
+    "brand": "Apple"
   }
-  ,{
-    "id": 21,
-    "img": "img/product/product-4.jpg",
-    "img_hover": "img/product/product4.jpg",
-    "name": "Android Smart Phone G3 (Mini)",
-    "price": 120,
-    "old_price": null,
-    "category": "Fashion",
-    "color": "Red"
-  },
-  {
-    "id": 22,
-    "img": "img/product/product-5.jpg",
-    "img_hover": "img/product/product5.jpg",
-    "name": "Android Smart Phone G3 (Standard)",
-    "price": 90,
-    "old_price": null,
-    "category": "Fashion",
-    "color": "Gray"
-  },
-  {
-    "id": 23,
-    "img": "img/product/product-6.jpg",
-    "img_hover": "img/product/product6.jpg",
-    "name": "Android Smart Phone G3 (Basic)",
-    "price": 129,
-    "old_price": null,
-    "category": "Fashion",
-    "color": "Black"
-  },
-  {
-    "id": 24,
-    "img": "img/product/product-7.jpg",
-    "img_hover": "img/product/product7.jpg",
-    "name": "Android Smart Phone G3 (Edition)",
-    "price": 180,
-    "old_price": null,
-    "category": "Fashion",
-    "color": "Silver"
-  },
-  {
-    "id": 20,
-    "img": "img/product/product-8.jpg",
-    "img_hover": "img/product/product8.jpg",
-    "name": "Student",
-    "price": 60,
-    "old_price": null,
-    "category": "Watches",
-    "color": "Brown"
-  },
-   {
-    "id": 21,
-    "img": "img/product/product-8.jpg",
-    "img_hover": "img/product/product8.jpg",
-    "name": "Student",
-    "price": 60,
-    "old_price": null,
-    "category": "Fashion",
-    "color": "Brown"
-  }
-  ,{
-    "id": 21,
-    "img": "img/product/product-4.jpg",
-    "img_hover": "img/product/product4.jpg",
-    "name": "Android Smart Phone G3 (Mini)",
-    "price": 120,
-    "old_price": null,
-    "category": "Watches",
-    "color": "Red"
-  },
-  {
-    "id": 22,
-    "img": "img/product/product-5.jpg",
-    "img_hover": "img/product/product5.jpg",
-    "name": "Android Smart Phone G3 (Standard)",
-    "price": 90,
-    "old_price": null,
-    "category": "Watches",
-    "color": "Gray"
-  },
-  {
-    "id": 23,
-    "img": "img/product/product-6.jpg",
-    "img_hover": "img/product/product6.jpg",
-    "name": "Android Smart Phone G3 (Basic)",
-    "price": 129,
-    "old_price": null,
-    "category": "Watches",
-    "color": "Black"
-  },
-  {
-    "id": 24,
-    "img": "img/product/product-6.jpg",
-    "img_hover": "img/product/product6.jpg",
-    "name": "Android Smart Phone G3 (Basic)",
-    "price": 129,
-    "old_price": null,
-    "category": "Watches",
-    "color": "Black"
-  }
-  
 ]
